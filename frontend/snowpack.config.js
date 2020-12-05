@@ -12,7 +12,7 @@ module.exports = {
       preloadModules: false,
       preloadCSS: false,
       //preloadCSSFileName: "/css/app.114514.css",
-      target: ["chrome49"]
+      //target: ["chrome49"]
     }],
     [
       '@snowpack/plugin-webpack',

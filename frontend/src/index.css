@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'Product Sans';
-  src: local('Product Sans Regular'), local('Google Sans Regular'),
+  font-family: "Product Sans";
+  src: local("Product Sans Regular"), local("Google Sans Regular"),
     url(https://cdn.jsdelivr.net/gh/186526/jsdelivr@1.1.8/static/ProductSans-Regular.woff2)
-      format('woff2');
+      format("woff2");
   font-display: swap;
 }
 .mdui-container {
@@ -26,16 +26,16 @@ body {
   border-radius: 8px;
 }
 .mdui-shadow-3 {
-  padding:20px;
+  padding: 20px;
 }
 .mdui-container .mdui-list-item {
   border-radius: 50px;
 }
-.mdui-typo h1{
-  margin-top:0px;
+.mdui-typo h1 {
+  margin-top: 0px;
 }
-.mdui-container{
-  margin-top:10%;
+.mdui-container {
+  margin-top: 10%;
 }
 .spacer {
   padding-bottom: 10%;
