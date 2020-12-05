@@ -1,7 +1,4 @@
 import mdui from "mdui";
-import "./normalize.css";
-import "./mdui.css";
-import "./index.css";
 import shortlink from "./shortlink.js";
 var $ = mdui.$;
 window.$ = mdui.$;
