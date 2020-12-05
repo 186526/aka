@@ -1,96 +1,96 @@
 importScripts(
-    'https://cdn.jsdelivr.net/npm/workbox-cdn@4.2.0/workbox/workbox-sw.js',
+  "https://cdn.jsdelivr.net/npm/workbox-cdn@4.2.0/workbox/workbox-sw.js"
 );
-console.log('service worker 注册成功');
-self.addEventListener('install', (e) => {
-    console.log('Service worker 安装成功');
-    self.skipWaiting();
+console.log("service worker 注册成功");
+self.addEventListener("install", (e) => {
+  console.log("Service worker 安装成功");
+  self.skipWaiting();
 });
-self.addEventListener('activate', () => {
-    console.log('Service worker 激活||应用更新 成功');
+self.addEventListener("activate", () => {
+  console.log("Service worker 激活||应用更新 成功");
 });
 if (workbox) {
-    workbox.core.setCacheNameDetails({
-        prefix: 'AKA',
-        suffix: '0.1 sw-test',
-        precache: 'precache',
-        runtime: 'runtime',
-    });
-    workbox.routing.registerRoute(
-        /\/js*/,
-        new workbox.strategies.CacheFirst({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 60 * 24 * 7,
-                }),
-            ],
-            cacheName: 'Static Sources',
+  workbox.core.setCacheNameDetails({
+    prefix: "AKA",
+    suffix: "0.1 sw-test",
+    precache: "precache",
+    runtime: "runtime",
+  });
+  workbox.routing.registerRoute(
+    /\/js*/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 24 * 7,
         }),
-    );
-    workbox.routing.registerRoute(
-        /\/css*/,
-        new workbox.strategies.CacheFirst({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 60 * 24 * 7,
-                }),
-            ],
-            cacheName: 'Static Sources',
+      ],
+      cacheName: "Static Sources",
+    })
+  );
+  workbox.routing.registerRoute(
+    /\/css*/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 24 * 7,
         }),
-    );
-    workbox.routing.registerRoute(
-        /\/assets*/,
-        new workbox.strategies.CacheFirst({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 60 * 24 * 7,
-                }),
-            ],
-            cacheName: 'Static Sources',
+      ],
+      cacheName: "Static Sources",
+    })
+  );
+  workbox.routing.registerRoute(
+    /\/assets*/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 24 * 7,
         }),
-    );
-    workbox.routing.registerRoute(
-        /.*cdn\.jsdelivr\.net/,
-        new workbox.strategies.CacheFirst({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 60 * 24 * 24 * 30,
-                }),
-            ],
-            cacheName: 'jsDelivr',
+      ],
+      cacheName: "Static Sources",
+    })
+  );
+  workbox.routing.registerRoute(
+    /.*cdn\.jsdelivr\.net/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 24 * 24 * 30,
         }),
-    );
-    workbox.routing.registerRoute(
-        /\/api*/,
-        new workbox.strategies.NetworkFirst({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 5,
-                }),
-            ],
-            cacheName: 'Others',
+      ],
+      cacheName: "jsDelivr",
+    })
+  );
+  workbox.routing.registerRoute(
+    /\/api*/,
+    new workbox.strategies.NetworkFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 5,
         }),
-    );
-    workbox.routing.registerRoute(
-        /\//,
-        new workbox.strategies.StaleWhileRevalidate({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 60 * 4,
-                }),
-            ],
-            cacheName: 'index',
+      ],
+      cacheName: "Others",
+    })
+  );
+  workbox.routing.registerRoute(
+    /\//,
+    new workbox.strategies.StaleWhileRevalidate({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 4,
         }),
-    );
-    workbox.routing.registerRoute(
-        /\*/,
-        new workbox.strategies.StaleWhileRevalidate({
-            plugins: [
-                new workbox.expiration.Plugin({
-                    maxAgeSeconds: 60 * 5,
-                }),
-            ],
-            cacheName: 'Others',
+      ],
+      cacheName: "index",
+    })
+  );
+  workbox.routing.registerRoute(
+    /\*/,
+    new workbox.strategies.StaleWhileRevalidate({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 5,
         }),
-    );
+      ],
+      cacheName: "Others",
+    })
+  );
 }
