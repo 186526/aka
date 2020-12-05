@@ -1,0 +1,18 @@
+name = "aka_frontend"
+type = "webpack"
+account_id = "<account_id>"
+workers_dev = true
+routes = [
+    "<domain>/cdn-sources/*",
+    "<domain>/sw.js",
+    "<domain>/js/*",
+    "<domain>/css/*",
+    "<domain>/",
+    "<domain>/index.html",
+    "<domain>/assets/*"
+]
+zone_id = "<zone_id>"
+
+[site]
+bucket = "./build"
+entry-point = "workers-site"

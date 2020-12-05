@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+  <meta name="renderer" content="webkit" />
+  <meta name="force-rendering" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>aka</title>
+  <link rel="shortcut icon" href="/assets/icon.png">
+  <link rel="manifest" href="/assets/manifest.json">
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+</head>
+
+<body class="mdui-loaded mdui-theme-layout-auto">
+
+  <nav class="mdui-appbar mdui-shadow-0">
+    <nav class="mdui-toolbar">
+      <a class="mdui-typo-headline" href="https://aka.186526.xyz">
+        aka
+      </a>
+      <spacer class="mdui-toolbar-spacer"></spacer>
+    </nav>
+  </nav>
+
+  <div class="mdui-container" id="container">
+    <div class="mdui-shadow-3 mdui-clearfix">
+      <div class="mdui-typo" id="aka">
+        <h1>AKA</h1>
+        <h2>Shorten URL with one click</h2>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <i class="mdui-icon material-icons">link</i>
+        <label class="mdui-textfield-label" for="need_shorturl">LongURL</label>
+        <input class="mdui-textfield-input" type="url" id="need_shorturl" required/>
+        <div class="mdui-textfield-error">URL格式错误</div>
+      </div>
+      <button class="mdui-float-right mdui-btn mdui-btn-icon mdui-color-pink mdui-ripple" id="short"><i
+          class="mdui-icon material-icons">arrow_forward</i></button>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <footer class="mdui-typo mdui-text-center">
+    Powered by <a href="https://github.com/186526/AKA">AKA</a>.
+    Provided by <a href="https://workers.dev">Cloudflare Worker</a>.
+  </footer>
+
+  <script type="module" src="./_dist_/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+name = "aka"
+type = "javascript"
+account_id = "<account_id>"
+workers_dev = true
+route = "<domain>/*"
+zone_id = "<zone_id>"
+kv_namespaces = [ 
+         { binding = "__aka__", id = "<kv id>" }
+]
