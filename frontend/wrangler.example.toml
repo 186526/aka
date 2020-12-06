@@ -9,7 +9,10 @@ routes = [
     "<domain>/css/*",
     "<domain>/",
     "<domain>/index.html",
-    "<domain>/assets/*"
+    "<domain>/assets/*",
+    "<domain>/web_modules/*",
+    "<domain>/_dist_/*",
+    "<domain>/__snowpack__/*"
 ]
 zone_id = "<zone_id>"
 

@@ -10,8 +10,8 @@ module.exports = {
       minifyCSS: true,
       minifyHTML: true,
       preloadModules: false,
-      preloadCSS: false,
-      //preloadCSSFileName: "/css/app.114514.css",
+      preloadCSS: true,
+      preloadCSSFileName: "/css/app.fJfoaM.css",
       //target: ["chrome49"]
     }],
     [

@@ -53,7 +53,7 @@ async function handleEvent(event) {
 
     // Server Push 文件
     if (response.headers.get("Content-Type").includes('text/html')) {
-      response.headers.append('Link', `<${manifest["index.js"]}>; rel=preload; as=script`);
+      response.headers.append('Link', `<${config.plugins[0][1].preloadCSSFileName}>; rel=preload; as=style`);
     }
 
     return response;

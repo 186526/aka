@@ -39,6 +39,28 @@ if (workbox) {
     })
   );
   workbox.routing.registerRoute(
+    /\/_dist_*/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60,
+        }),
+      ],
+      cacheName: "Static Sources",
+    })
+  );
+  workbox.routing.registerRoute(
+    /\/web_modules*/,
+    new workbox.strategies.CacheFirst({
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 24 * 3,
+        }),
+      ],
+      cacheName: "Static Sources",
+    })
+  );
+  workbox.routing.registerRoute(
     /\/assets*/,
     new workbox.strategies.CacheFirst({
       plugins: [
