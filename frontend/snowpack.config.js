@@ -1,4 +1,5 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
+const buildConfig = require("./build.config");
 module.exports = {
   mount: {
     public: '/',
@@ -11,7 +12,7 @@ module.exports = {
       minifyHTML: true,
       preloadModules: false,
       preloadCSS: true,
-      preloadCSSFileName: "/css/app.fJfoaM.css",
+      preloadCSSFileName: buildConfig.cssname,
       //target: ["chrome49"]
     }],
     [
@@ -19,6 +20,18 @@ module.exports = {
       {
         htmlMinifierOptions: true,
         manifest: "./manifest.json",
+        extendConfig: (config) => {
+          const { ESBuildPlugin } = require('esbuild-loader');
+          config.module.rules.push({
+            test: /\.[jt]sx?$/,
+            loader: 'esbuild-loader',
+            options: {
+              target: 'chrome49',
+            },
+          });
+          config.plugins.push(new ESBuildPlugin());
+          return config;
+        }
       },
     ],
   ],

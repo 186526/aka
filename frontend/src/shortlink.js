@@ -4,7 +4,7 @@ export default class {
     this.link = link;
   }
   async create(name) {
-    const domain = new URL(this.jsonrpc).origin;
+    const domain = new URL(this.jsonrpc).host;
     let res = {
       json: {
         jsonrpc: "2.0",

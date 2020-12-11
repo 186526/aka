@@ -36,7 +36,7 @@
       <div class="mdui-textfield mdui-textfield-floating-label">
         <i class="mdui-icon material-icons">link</i>
         <label class="mdui-textfield-label" for="need_shorturl">Long Link</label>
-        <input class="mdui-textfield-input" type="url" id="need_shorturl" required />
+        <input class="mdui-textfield-input" type="url" id="need_shorturl" required onkeydown="if(event.keyCode==13) document.querySelector('#short').click();"/>
         <div class="mdui-textfield-error">URL format error</div>
       </div>
       <button class="mdui-float-right mdui-btn mdui-btn-icon mdui-color-pink mdui-ripple" id="short"><i

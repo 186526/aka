@@ -4,6 +4,13 @@ import "./mdui.css";
 import "./index.css";
 var $ = mdui.$;
 window.$ = mdui.$;
+if(location.protocol !== "https:"){
+  console.log("Try HTTPS Up");
+  if(location.host !== "localhost:8080"){
+    console.log("Not Develop Server");
+    location.protocol = "https:";
+  }
+}
 $(() => {
   $("title").html(location.host);
   $(".mdui-typo-headline").html(location.host);

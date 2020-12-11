@@ -1,5 +1,5 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler';
-const config = require("../snowpack.config");
+const config = require("../build.config");
 const manifest = require("../build/manifest.json");
 
 addEventListener('fetch', (event) => {
@@ -53,7 +53,7 @@ async function handleEvent(event) {
 
     // Server Push 文件
     if (response.headers.get("Content-Type").includes('text/html')) {
-      response.headers.append('Link', `<${config.plugins[0][1].preloadCSSFileName}>; rel=preload; as=style`);
+      response.headers.append('Link', `<${config.cssname}>; rel=preload; as=style`);
     }
 
     return response;

@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build;mv ./build/_dist_/sw.js ./build/sw.js",
+    "build": "snowpack build;mv ./build/_dist_/sw.js ./build/sw.js;node ./build.mjs",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "prettier --check \"src/**/*.js\"",
@@ -13,6 +13,8 @@
   "devDependencies": {
     "@snowpack/plugin-optimize": "^0.2.10",
     "@snowpack/plugin-webpack": "^2.1.2",
+    "cheerio": "^1.0.0-rc.3",
+    "esbuild-loader": "^2.6.1",
     "prettier": "^2.0.5",
     "snowpack": "^2.18.0"
   }
