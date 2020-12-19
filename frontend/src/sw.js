@@ -43,7 +43,7 @@ if (workbox) {
     new workbox.strategies.CacheFirst({
       plugins: [
         new workbox.expiration.Plugin({
-          maxAgeSeconds: 60 * 60,
+          maxAgeSeconds: 60*10,
         }),
       ],
       cacheName: "Static Sources",

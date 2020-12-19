@@ -8,6 +8,7 @@
     "clean": "rm -rf dist build"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "mdui": "^1.0.1"
   },
   "devDependencies": {

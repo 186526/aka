@@ -8,6 +8,6 @@ $('script').each(
         $(this).attr('nomodule', '');
     }
 );
-$('head').append('<script type="module" src="/_dist_/index.js"></script><link rel="modulepreload" href="/_dist_/shortlink.js"><link rel="modulepreload" href="/web_modules/mdui.js">');
+$('head').append('<script type="module" src="/_dist_/index.js"></script><link rel="modulepreload" href="/_dist_/shortlink.js"><link rel="modulepreload" href="/web_modules/mdui.js"><link rel="modulepreload" href="/web_modules/axios.js">');
 index = $.html();
 writeFileSync('./build/index.html', index, { encoding: 'utf8' });

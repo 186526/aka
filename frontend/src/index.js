@@ -15,6 +15,10 @@ $(() => {
   $("title").html(location.host);
   $(".mdui-typo-headline").html(location.host);
   $("#short").on("click", async () => {
+    if ($("#shorturl_name").val() === "") {
+      $("#shorturl_name").val(new shortlink().randomString(8));
+      mdui.updateTextFields();
+    }
     if ($("#need_shorturl").val() === "") {
       return;
     }
@@ -28,8 +32,13 @@ $(() => {
       }
       $("#need_shorturl").val("http://" + $("#need_shorturl").val());
     }
+    const short = $("#shorturl_name").val();
     const url = $("#need_shorturl").val();
     mdui.updateTextFields();
+    console.log({
+      url:url,
+      shortlink:short,
+    });
     let Loading = mdui.dialog({
       title: "Loading...",
       content: '<div class="mdui-spinner mdui-theme-pink"></div>',
@@ -38,7 +47,9 @@ $(() => {
     });
     mdui.mutation();
     let a = new shortlink(url, `${window.location.origin}/api/jsonrpc`);
-    let answer = await a.random();
+    let answer = await a.create(
+      short
+    );
     console.log(answer);
     Loading.close();
     mdui.dialog({
