@@ -1,3 +1,3 @@
 module.exports = {
-    cssname:'/css/app.Afkscs.css',
+    cssname:'/css/app.Pjskns.css',
 };

@@ -84,7 +84,7 @@ if (workbox) {
   );
   workbox.routing.registerRoute(
     /\/api*/,
-    new workbox.strategies.NetworkFirst({
+    new workbox.strategies.NetworkOnly({
       plugins: [
         new workbox.expiration.Plugin({
           maxAgeSeconds: 60 * 5,

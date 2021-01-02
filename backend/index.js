@@ -1,4 +1,10 @@
-const list = __aka__;
+try {
+    const list = __aka__;
+}catch(err){
+    return new Response(
+        `The KV named "__aka__" was not found!`
+    );
+}
 const aka = {};
 
 const jsonrpcheaders = {

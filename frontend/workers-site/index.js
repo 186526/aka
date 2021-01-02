@@ -36,7 +36,7 @@ async function handleEvent(event) {
           cacheEverything: true,
         },
       });
-      response.headers.set('cache-control', `public, max-age=${365 * 24 * 60 * 60}, immutable`);
+      response.headers.set('Cache-Control', `public, max-age=${365 * 24 * 60 * 60}, immutable`);
       return response;
     }
 
@@ -55,6 +55,8 @@ async function handleEvent(event) {
     if (response.headers.get("Content-Type").includes('text/html')) {
       response.headers.append('Link', `<${config.cssname}>; rel=preload; as=style`);
     }
+
+    response.headers.set('Cache-Control', `public, max-age=${60*60*24}`);
 
     return response;
   } catch (e) {
