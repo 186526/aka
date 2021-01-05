@@ -4,3 +4,4 @@
 
 - Demo: [aka.186526.xyz](https://aka.186526.xyz)
 - Use Cloudflare Worker Serverless Service
+- How to run: [「 Run short links service with AKA  」](https://blog.186526.xyz/post/run-with-aka/)

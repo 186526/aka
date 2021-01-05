@@ -1,10 +1,3 @@
-try {
-    const list = __aka__;
-}catch(err){
-    return new Response(
-        `The KV named "__aka__" was not found!`
-    );
-}
 const aka = {};
 
 const jsonrpcheaders = {
@@ -159,6 +152,13 @@ addEventListener("fetch", e => {
 });
 
 const handler = async (req) => {
+    try {
+        globalThis.list = __aka__;
+    }catch(err){
+        return new Response(
+            `The KV named "__aka__" was not found!`
+        );
+    }    
     if (new URL(req.url).pathname === "/api/jsonrpc") {
         return aka.api.jsonrpc(req);
     }
