@@ -4,9 +4,9 @@ import "./mdui.css";
 import "./index.css";
 var $ = mdui.$;
 window.$ = mdui.$;
-if(location.protocol !== "https:"){
+if (location.protocol !== "https:") {
   console.log("Try HTTPS Up");
-  if(location.host !== "localhost:8080"){
+  if (location.host !== "localhost:8080") {
     console.log("Not Develop Server");
     location.protocol = "https:";
   }
@@ -14,6 +14,25 @@ if(location.protocol !== "https:"){
 $(() => {
   $("title").html(location.host);
   $(".mdui-typo-headline").html(location.host);
+  $("#easier-short").on("click", async () => {
+    mdui.dialog({
+      title: "Shorten quickly with aka",
+      content:
+        `<div class="mdui-typo">
+          <h3>Drag the link below to the bookmark bar to install the bookmark.</h3>
+          <a href="` +
+        "javascript:(async()=>{document.addEventListener('shortlinknow',()=>{const d=document,c=(d.head||d.body),e=d.createElement('script');e.defer = true;e.type ='module';e.innerHTML=`import a from 'https://cdn.jsdelivr.net/gh/186526/jsdelivr@master/static/api.js';(async (a) => { const b = await new a(globalThis.location.href, '" +
+        window.location.origin +
+        "/api/jsonrpc').random(); alert(b); })(a);`;c.appendChild(e);});document.dispatchEvent(new Event('shortlinknow'));})();" +
+        `">Shorten quickly with aka</a>
+        </div>`,
+      buttons: [
+        {
+          text: "OK",
+        },
+      ],
+    });
+  });
   $("#short").on("click", async () => {
     if ($("#shorturl_name").val() === "") {
       $("#shorturl_name").val(new shortlink().randomString(8));
@@ -36,8 +55,8 @@ $(() => {
     const url = $("#need_shorturl").val();
     mdui.updateTextFields();
     console.log({
-      url:url,
-      shortlink:short,
+      url: url,
+      shortlink: short,
     });
     let Loading = mdui.dialog({
       title: "Loading...",
@@ -47,9 +66,7 @@ $(() => {
     });
     mdui.mutation();
     let a = new shortlink(url, `${window.location.origin}/api/jsonrpc`);
-    let answer = await a.create(
-      short
-    );
+    let answer = await a.create(short);
     console.log(answer);
     Loading.close();
     mdui.dialog({

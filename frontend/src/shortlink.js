@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 export default class {
   constructor(link, jsonrpc = "https://aka.186526.xyz/api/jsonrpc") {
     this.jsonrpc = jsonrpc;
@@ -16,7 +16,7 @@ export default class {
     };
     res.text = JSON.stringify(res.json);
     let req = {
-      raw: await axios.post(this.jsonrpc,res.text,{
+      raw: await axios.post(this.jsonrpc, res.text, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -37,16 +37,13 @@ export default class {
     }
   }
   async random(len = 8) {
-    return this.create(
-      this.randomString(len),
-      this.url,
-      this.jsonrpc
-    );
+    return this.create(this.randomString(len), this.url, this.jsonrpc);
   }
-  randomString(len = 32){
-    let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+  randomString(len = 32) {
+    let $chars =
+      "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678"; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
     let maxPos = $chars.length;
-    let pwd = '';
+    let pwd = "";
     for (let i = 0; i < len; i++) {
       pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
     }
