@@ -19,6 +19,7 @@ jobs:
                 npm install -g npm
                 cd frontend
                 npm i
+                npm run build
             - name: Publish backend
               uses: cloudflare/wrangler-action@1.2.0
               with:
